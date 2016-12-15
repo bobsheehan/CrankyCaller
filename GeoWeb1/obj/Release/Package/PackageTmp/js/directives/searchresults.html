@@ -1,0 +1,12 @@
+﻿
+<div class="list-group" >
+   
+      <span class="label label-success"><span class="badge">{{phoneResultObj}}</span> People/Phone Numbers</span>
+      <ul ng-repeat="phoneList in phonesFoundObj" class="list-group">
+          <li class="list-group-item">
+              <a href="tel:{{phoneList.phoneNumber}}">{{phoneList.phoneNumber}}</a>
+              <p>{{phoneList.name}} {{phonelist.address}}</p>
+          </li>
+      </ul>
+
+    </div>

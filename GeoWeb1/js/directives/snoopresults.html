@@ -1,0 +1,12 @@
+﻿
+   
+<ul ng-repeat="spoke in spokeResults" class="list-group">
+    <li class="list-group-item">
+      {{spoke.fName}} {{spoke.lName}} : {{spoke.age}}  
+        <i ng-show="spoke.phoneNumber==null" class="glyphicon glyphicon-search" title="Deeper search" ng-click="nameSearch(spoke.fName, spoke.lName, spoke.seq)"><small>+</small></i>
+        <a ng-show="spoke.phoneNumber.length>0" href="tel:{{spoke.phoneNumber}}">{{spoke.phoneNumber}}</a>
+        <small><a class="glyphicon glyphicon-book" ng-href="http://people.yellowpages.com/whitepages?first={{spoke.fName}}&last={{spoke.lName}}&zip={{addTown}}&state={{addSta}}" title="white pages quick link"></a></small>
+    </li>
+</ul>
+
+

@@ -1,0 +1,117 @@
+ <!DOCTYPE html>
+<html ng-app="geoApp">
+  <head>
+    <title>Geolocation</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>      
+    <meta charset="utf-8"/>
+      <link rel="stylesheet" href="./css/bootstrap.min.css"/>
+      <link href="./css/font-awesome.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="./css/geomain.css" /> 
+      
+
+      
+    
+       <script 
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbup7dTnGx64M9owJrR2kVOa1AOe0ozBU">
+    </script>
+      <script type="text/javascript" src="./js/jquery-3.1.1.min.js"></script>
+      <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="./js/angular.min.js"></script>
+      <script type="text/javascript" src="./js/ui-bootstrap-tpls-2.3.1.min.js"></script>
+      <script type="text/javascript" src="./js/angular-animate.js"></script>
+      <script type="text/javascript" src="./js/angular-sanitize.js"></script>
+    
+      <script type="text/javascript" src="./js/parse-address.min.js"></script>
+      <script type="text/javascript" src="./js/app/app.js"></script>
+      <script type="text/javascript" src="./js/geoMain.js"></script>
+    
+
+    </head>
+    
+  <body>
+      
+  
+      
+  <div ng-controller="geoAppController" id="geoControllerID" style="height:100%; width:100%;">
+    
+      
+      
+      
+      
+
+      
+      
+      
+      
+      
+      <nav class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span> 
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Cranky Caller</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li class="active"><a href="#" data-toggle="modal" data-target="#jokeModal">Silly Jokes</a></li>
+            <li><a href="#about">About</a></li>
+          
+            
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+
+     <div id="map" ></div>
+     <div class="row col-lg-6">
+            <!-- <button class="btn btn-info" ng-click="getAddressFromGeo()" title="Search OpenStreet.org for an address"><i class="glyphicon glyphicon-eye-open"></i> OpenStreet</button> -->
+             <button class="btn btn-default m-progress" ng-click="geocodeLatLng()" title="Ask Google for this Address"><i ng-class="geocodeIconStatus"></i> <i class="glyphicon glyphicon-envelope"></i></button> 
+             <button class="btn btn-success" ng-show="isSearchableAddress()" ng-click="getYBPhoneNums()" title="Find phone #s"><i class="glyphicon glyphicon-eye-open"></i> <i class="glyphicon glyphicon-earphone"></i></button> 
+             <button class="btn btn-success" ng-show="isSearchableAddress()" ng-click="getSpokeTo()" title="Who Lives Here"><i ng-class="whoLivesHereIconStatus"></i> <i class="glyphicon glyphicon-user"></i> </button> 
+             <br/><small>{{message}}</small> <i ng-class="messageStatusIcon"></i>
+     </div>
+     
+     <div class="row col-lg-6">
+         <p>
+             <input type="checkbox" ng-click="trackToggle()" ng-model="trackingStatus"> Track
+             <!-- <input type="checkbox" ng-model="displayAddress">Display Address</label>-->
+
+             <input type="checkbox" ng-model="displayDebugPanel">Show Debug Panel
+             <!--  <input type="checkbox" ng-model="simulateWalk">Simulate Walk -->
+             <button class="btn btn-default" ng-show="displayDebugPanel" ng-click="popFakePhone()">Add Fake Phone</button>
+         </p>
+          <p>
+                   <debug-panel ng-show="displayDebugPanel"></debug-panel>
+                   <new-address ng-show="displayAddress"></new-address>
+
+                  <snoop-results spoke-Results="spokeResults"></snoop-results>
+                      
+                  <search-results phone-Result-Obj="phoneResult" phones-Found-Obj="phonesFound"
+                                   ng-show="phoneResult>0"></search-results>
+
+         
+         </p>
+</div>
+      
+     <div class="row col-lg-6">
+          <span class="small">
+              <span ng-show="searchable_address">Got one</span> <a ng-href="{{ypLink}}">YP Phone# Webpage</a>
+              <br />
+              <a ng-href="{{whosLink}}">OpenStreet Raw Data</a>
+          </span>
+     </div>
+      
+     <joke-dialog></joke-dialog>
+
+</div>
+      
+  
+
+  </body>
+</html>

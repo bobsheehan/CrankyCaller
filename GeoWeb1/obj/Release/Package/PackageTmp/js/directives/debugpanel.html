@@ -1,0 +1,16 @@
+<div class="panel panel-default">
+    <div class="panel-body" id="statuspanel">
+        <p><small>Current:[Lat:{{lat}} Lng:{{lon}}]</small></p>
+       <p><small>Last: [{{lastLat}}{{lastLon}}] </small></p>
+       <p><small>GeoUpdatecount ({{updateCount}}) {{message}}</small></p>
+       <p><small>Has Moved = {{hasMoved()}} Meters</small></p>
+       <p><small>Google says = {{googleGeoMsg}} </small></p>
+       <p><small>OpenStreet:
+             <span>
+                        <input class="input-sm" type="number" min="1" maxlength="5" ng-model="addNum">
+                        {{addRoad}}, {{addTown}},  {{addSta}}, {{addZip}}
+            </span>
+        </small></p>
+
+    </div>
+</div>
