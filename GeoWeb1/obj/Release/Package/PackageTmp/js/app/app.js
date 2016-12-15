@@ -68,10 +68,6 @@ geoApp.controller('geoAppController', ['$scope', '$http', '$interval','$uibModal
 
     $scope.initJokes = function(){
         
-      //  $scope.jokes=[{"id": "1","Joke": [{"Line":"Q: Is John Wall there?"},{"Line":"2No"}]},
-    //                  {"id": "2","Joke": [{"Line":"2Q: Is John Wall there?"},{"Line":"2No"}]}
-    //                 ];
-        
       
         
 $scope.jokes = [{
@@ -80,7 +76,7 @@ $scope.jokes = [{
     "lines": [{
         "line1": "Is your refigerator running?",
         "line2": "Yes.",
-        "line3": "We'll you better catch it."
+        "line3": "We'll you better catch it before it runs out of the house."
     }]
 },{
     id : "2",
