@@ -2,11 +2,12 @@
 <div class="panel panel-default">
     <div class="panel-body" id="addresPanel">
         <div class="row">
+          
                 <small ng-show="addTown.length>0">
                     <span text-left"><i class="glyphicon glyphicon-map-marker"></i></span>
                     <span>
                         <input class="input-sm" type="number" min="1" maxlength="5" ng-model="addNum" ng-change="clearResults();">
-                        {{addRoad}}, {{addTown}},  {{addSta}}, {{addZip}}
+                        {{addRoad}}, {{addTown}},  {{addSta}}, {{addZip}} <b> {{spokeHomeVal}}</b> 
                     </span>
 
                 </small>

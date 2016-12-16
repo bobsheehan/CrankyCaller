@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+﻿ <!DOCTYPE html>
 <html ng-app="geoApp">
   <head>
     <title>Cranky Caller</title>
@@ -33,16 +33,6 @@
   
       
   <div ng-controller="geoAppController" id="geoControllerID" style="height:100%; width:100%;">
-    
-      
-      
-      
-      
-
-      
-      
-      
-      
       
       <nav class="navbar navbar-inverse navbar-static-top">
       <div class="container">
@@ -72,7 +62,6 @@
      <div class="row col-lg-6">
             <!-- <button class="btn btn-info" ng-click="getAddressFromGeo()" title="Search OpenStreet.org for an address"><i class="glyphicon glyphicon-eye-open"></i> OpenStreet</button> -->
              <button class="btn btn-default m-progress" ng-click="geocodeLatLng()" title="Ask Google for this Address"><i ng-class="geocodeIconStatus"></i> <i class="glyphicon glyphicon-envelope"></i></button> 
-             <button class="btn btn-success" ng-show="isSearchableAddress()" ng-click="getYBPhoneNums()" title="Find phone #s"><i class="glyphicon glyphicon-eye-open"></i> <i class="glyphicon glyphicon-earphone"></i></button> 
              <button class="btn btn-success" ng-show="isSearchableAddress()" ng-click="getSpokeTo()" title="Who Lives Here"><i ng-class="whoLivesHereIconStatus"></i> <i class="glyphicon glyphicon-user"></i> </button> 
              <br/><small>{{message}}</small> <i ng-class="messageStatusIcon"></i>
      </div>
@@ -83,8 +72,6 @@
              <!-- <input type="checkbox" ng-model="displayAddress">Display Address</label>-->
 
              <input type="checkbox" ng-model="displayDebugPanel">Show Debug Panel
-             <!--  <input type="checkbox" ng-model="simulateWalk">Simulate Walk -->
-             <button class="btn btn-default" ng-show="displayDebugPanel" ng-click="popFakePhone()">Add Fake Phone</button>
          </p>
           <p>
                    <debug-panel ng-show="displayDebugPanel"></debug-panel>

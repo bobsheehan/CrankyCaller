@@ -59,6 +59,7 @@ geoApp.controller('geoAppController', ['$scope', '$http', '$interval','$uibModal
 
     $scope.clearResults = function () {
         $scope.spokeResults = [];
+        $scope.spokeHomeVal = "";
         $scope.spokeResultsCount = 0;
         $scope.phonesFound = [];
         $scope.showPhoneResults = true;
@@ -86,7 +87,7 @@ $scope.jokes = [{
         "line2": "No.",
         "line3": "Are there any Walls there?",
         "line4": "No.",
-        "line5": "Then what's holding up you house?"
+        "line5": "Then what's holding up your house?"
     }]
 },
                 {
@@ -98,7 +99,7 @@ $scope.jokes = [{
         "line3": "Never mind... this is pointless."
         }]
 },
-                           {
+{
     id : "4",
     "type": 'Kid',
     "lines": [{
@@ -106,9 +107,18 @@ $scope.jokes = [{
         "line2": "Acha who?",
         "line3": "Bless you."
         }]
-}
+},
+{
+    id: "5",
+    "type": 'Kid',
+    "lines": [{
+        "line1": "I'm calling for IAM.",
+        "line2": "IAM who?",
+        "line3": "Well if you don't even know who you are then you obviously won't be able to find who I am calling for."
+    }]
+},
                            
-                           ]
+      ]
     }
     
     $scope.initSetup(false);
@@ -290,6 +300,7 @@ $scope.getSpokeTo = function () {
             .then(function (response) {
 
                 $scope.spokeResults = response.data.peopleInfo;
+                $scope.spokeHomeVal = response.data.houseValue;
                 $scope.message = "Found " + response.data.result + " name(s).";
                 $scope.whoLivesHereIconStatus = $scope.whoLivesHereStatusWaiting;
 

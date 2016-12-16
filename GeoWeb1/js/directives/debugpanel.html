@@ -11,6 +11,11 @@
                         {{addRoad}}, {{addTown}},  {{addSta}}, {{addZip}}
             </span>
         </small></p>
+        <p>
+            <!--  <input type="checkbox" ng-model="simulateWalk">Simulate Walk -->
+            <button class="btn btn-default" ng-show="displayDebugPanel" ng-click="popFakePhone()">Add Fake Phone</button>
+            <button class="btn btn-success" ng-show="isSearchableAddress()" ng-click="getYBPhoneNums()" title="Find phone #s"><i class="glyphicon glyphicon-eye-open"></i> <i class="glyphicon glyphicon-earphone"></i>Try direct yellow book search</button>
 
+        </p>
     </div>
 </div>
