@@ -301,7 +301,11 @@ $scope.getSpokeTo = function () {
 
                 $scope.spokeResults = response.data.peopleInfo;
                 $scope.spokeHomeVal = response.data.houseValue;
-                $scope.message = "Found " + response.data.result + " name(s).";
+                if (response.data.result < 1) {
+                    $scope.updateGenMessage("No obvious names found here... try again later...");
+                }else{
+                 $scope.updateGenMessage("Found " +response.data.result + " name(s).");
+                }
                 $scope.whoLivesHereIconStatus = $scope.whoLivesHereStatusWaiting;
 
             }, function (error) {

@@ -287,6 +287,7 @@ namespace WebApi.Controllers
                 }
 
             }
+            myResults.result = hits.ToString();
             myResults.houseValue = ParseSpokeToHomeValue(html);
             return myResults;
         }

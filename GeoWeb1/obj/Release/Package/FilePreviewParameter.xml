@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="IIS Web Application Name" description="" value="LocalGeo" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^\\\\Mac\\Home\\Documents\\Visual\ Studio\ 2015\\Projects\\GeoSnoop\\GeoWeb1\\obj\\Release\\Package\\PackageTmp$" />
-    <parameterEntry kind="ProviderPath" scope="setAcl" match="^\\\\Mac\\Home\\Documents\\Visual\ Studio\ 2015\\Projects\\GeoSnoop\\GeoWeb1\\obj\\Release\\Package\\PackageTmp$" />
+  <parameter name="IIS Web Application Name" description="" value="crankycall" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^\\\\Mac\\Home\\Documents\\Visual\ Studio\ 2015\\Projects\\CrankyCaller\\GeoWeb1\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^\\\\Mac\\Home\\Documents\\Visual\ Studio\ 2015\\Projects\\CrankyCaller\\GeoWeb1\\obj\\Release\\Package\\PackageTmp$" />
   </parameter>
 </parameters>
