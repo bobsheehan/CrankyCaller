@@ -425,7 +425,6 @@ $scope.updateMessageIcon = function (status) {
 
 }
 
-$scope.messageStatusIcon = "";
 
 $scope.updateGenMessage = function(msg){
     $scope.message= msg;
@@ -569,7 +568,7 @@ $scope.if_undef = function (data, undefval) {
   };
   
   $scope.getLocation();
-  
+ 
 }]);
 
 geoApp.directive("debugPanel", function () {
