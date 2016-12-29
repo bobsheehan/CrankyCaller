@@ -292,22 +292,7 @@ namespace WebApi.Controllers
             return myResults;
         }
 
-        public void Test()
-        {
-            string test = "<html><body><!-- testcomment --><!--react - text: 7-- > Home Value <!-- / react - text-- ><!--react - text: 8-- >< !-- / react - text-- >$1.04M < !--react - text: 12-- >< !-- / react - text-- > </body ></html >";
-            HtmlDocument html = new HtmlDocument();
-            html.LoadHtml(test);
-            foreach ( HtmlNode bodynode in html.DocumentNode.SelectNodes("//body")){
-                Regex Reggie = new Regex("\\<.*?>");
-                string foobar = bodynode.InnerText;
-                string bar = Reggie.Replace(foobar, " ");
-                foreach (HtmlNode comment in bodynode.SelectNodes("comment()") ?? Enumerable.Empty<HtmlNode>())
-                {
-                    string foo = comment.InnerText;
-                }
-            }
-
-        }
+   
          private string ParseSpokeToHomeValue(HtmlDocument html)
         {
             string HomeVal = "";
