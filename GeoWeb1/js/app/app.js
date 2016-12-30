@@ -144,7 +144,7 @@ $scope.jokes = [{
 
 /*being google geocoder core functions */
     
-  $scope.addGoogleGeoListner = function () {
+  $scope.addGoogleGeoClickListner = function () {
       $scope.myClickListener = google.maps.event.addListener($scope.amap, 'click', function (event) {
           var clickLat = event.latLng.lat();
           var clickLon = event.latLng.lng();
@@ -161,7 +161,7 @@ $scope.jokes = [{
     
   $scope.removeGoogleGeoListner = function () {
       if ($scope.myClickListener != null) {
-          $scope.amal.event.removeListener($scope.myClickListener);
+          $scope.amap.event.removeListener($scope.myClickListener);
       }
   };
     
@@ -234,22 +234,21 @@ $scope.jokes = [{
  
  /* end google geocoder core functions */  
   
-  var stop;
+  
   var updateTimer = function(){
       $scope.getLocation();
   };
 
   $scope.trackToggle = function(){
-     if ($scope.trackingStatus){
-        
-         // stop = $interval(updateTimer,$scope.maximumAge);
-         $scope.getLocation();
-         $scope.removeGoogleGeoListner();
+     if (!$scope.trackingStatus){
+           navigator.geolocation.clearWatch($scope.watchId);
+           $scope.removeGoogleGeoListner();
+           $scope.addGoogleGeoClickListner();
          
      }else{
-       //  $interval.cancel(stop);
-         navigator.geolocation.clearWatch($scope.watchId);
-         $scope.addGoogleGeoListner();
+         
+         $scope.getLocation();
+        
      }
   };
       
