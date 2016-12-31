@@ -134,16 +134,7 @@ namespace GeoWeb1.Tests
 
         }
 
-        [TestMethod]
-        public void TestTest()
-        {
-            var MyWebAPIController = new WebApi.Controllers.GeoController();
-
-            //call service for a known/random-ish address
-            MyWebAPIController.Test();
-            Assert.IsTrue(true);    
-        }
-
+     
         [TestMethod]
         public void TestSpokeToService()
         {
