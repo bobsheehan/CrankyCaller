@@ -207,19 +207,25 @@ namespace WebApi.Controllers
            
                 HttpWebRequest myReq =
                 (HttpWebRequest)WebRequest.Create(URL);
-                //begin fake useragent so external service won't deny us
+
+             
+                    //begin fake useragent so external service won't deny us
                 myReq.Accept = "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
                 myReq.UserAgent = "Mozilla / 5.0(Macintosh; Intel Mac OS X 10.10; rv: 50.0) Gecko / 20100101 Firefox / 50.0";
+                myReq.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
+
                 //end fake useragent so external service won't deny us
 
-                WebResponse MyResponse = myReq.GetResponse();
-
-                Stream dataStream = MyResponse.GetResponseStream();
-                // Open the stream using a StreamReader for easy access.
-                StreamReader reader = new StreamReader(dataStream);
-                // Read the content.
-                return reader.ReadToEnd();
-                
+                using  (WebResponse MyResponse = myReq.GetResponse())
+                {
+                    using (Stream dataStream = MyResponse.GetResponseStream())
+                    {
+                        // Open the stream using a StreamReader for easy access.
+                        StreamReader reader = new StreamReader(dataStream);
+                        // Read the content.
+                        return reader.ReadToEnd();
+                    }
+                }
 
             }
             catch (Exception ex)
