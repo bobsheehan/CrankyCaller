@@ -141,6 +141,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="scrapers\scraper.cs" />
+    <Compile Include="scrapers\spoketo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

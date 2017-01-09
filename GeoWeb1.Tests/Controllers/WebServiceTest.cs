@@ -19,7 +19,7 @@ namespace GeoWeb1.Tests
 
             IHttpActionResult serviceResult = MyWebAPIController.Ping();
 
-            var content = serviceResult as System.Web.Http.Results.JsonResult<WebApi.Controllers.GenericResult>;
+            var content = serviceResult as System.Web.Http.Results.JsonResult<Scrapers.GenericResult>;
             if (content != null) {
                 if (content.Content != null)
                 {
@@ -43,7 +43,7 @@ namespace GeoWeb1.Tests
             //call service for a known/random-ish lat/log
             IHttpActionResult serviceResult = MyWebAPIController.GeoWhoOpenStreet(42.4232158, -71.1537637);
         
-            var content = serviceResult as OkNegotiatedContentResult<WebApi.Controllers.GenericResult>;
+            var content = serviceResult as OkNegotiatedContentResult<Scrapers.GenericResult>;
             if (content != null)
             {
                 if (content.Content != null)
@@ -71,7 +71,7 @@ namespace GeoWeb1.Tests
             //call service that asks for phone numbers by address for a known/random-ish address
             IHttpActionResult serviceResult = MyWebAPIController.GeoYellowpage(70,"Walnut St","Arlington","MA","02476");
            // { result = 0, phonelist = { System.Collections.Generic. }
-            var content = serviceResult as OkNegotiatedContentResult<WebApi.Controllers.PhoneLookupResult>;
+            var content = serviceResult as OkNegotiatedContentResult<Scrapers.PhoneLookupResult>;
             if (content != null)
             {
                 if (content.Content != null)
@@ -107,7 +107,7 @@ namespace GeoWeb1.Tests
             //call service that looks up a name & town for a known/random-ish address
             IHttpActionResult serviceResult = MyWebAPIController.GeoYellowpageName("R", "Sheehan", 70, "Walnut","Arlington", "MA", "02476");
             // { result = 0, phonelist = { System.Collections.Generic. }
-            var content = serviceResult as OkNegotiatedContentResult<WebApi.Controllers.PhoneLookupResult>;
+            var content = serviceResult as OkNegotiatedContentResult<Scrapers.PhoneLookupResult>;
             if (content != null)
             {
                 if (content.Content != null)
@@ -143,7 +143,7 @@ namespace GeoWeb1.Tests
             //call service for a known/random-ish address
             IHttpActionResult serviceResult = MyWebAPIController.GeoSpokeTo(70, "Walnut St", "Arlington", "MA", "02476");
             // { result = 0, phonelist = { System.Collections.Generic. }
-            var content = serviceResult as OkNegotiatedContentResult<WebApi.Controllers.GenerticInfoHit>;
+            var content = serviceResult as OkNegotiatedContentResult<Scrapers.GenerticInfoHit>;
             if (content != null)
             {
                 if (content.Content != null)
