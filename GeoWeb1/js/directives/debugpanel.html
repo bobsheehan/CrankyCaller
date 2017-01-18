@@ -13,9 +13,17 @@
         </small></p>
         <p>
             <!--  <input type="checkbox" ng-model="simulateWalk">Simulate Walk -->
-            <button class="btn btn-default" ng-show="displayDebugPanel" ng-click="popFakePhone()">Add Fake Phone</button>
+            <!--<button class="btn btn-default" ng-show="displayDebugPanel" ng-click="popFakePhone()">Add Fake Phone</button>-->
             <button class="btn btn-success" ng-show="isSearchableAddress()" ng-click="getYBPhoneNums()" title="Find phone #s"><i class="glyphicon glyphicon-eye-open"></i> <i class="glyphicon glyphicon-earphone"></i>Try direct yellow book search</button>
 
         </p>
+        <p>
+          <span class="small">
+              <span ng-show="searchable_address">Got one</span> <a ng-href="{{ypLink}}">YP Phone# Webpage</a>
+              <br />
+              <a ng-href="{{whosLink}}">OpenStreet Raw Data</a>
+          </span>
+
+         </p>
     </div>
 </div>
