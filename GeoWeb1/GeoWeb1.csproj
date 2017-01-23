@@ -102,6 +102,7 @@
     <Content Include="js\geoMain.js" />
     <Content Include="js\parse-address.min.js" />
     <Content Include="js\ui-bootstrap-tpls-2.3.1.min.js" />
+    <None Include="js\_references.js" />
     <Content Include="packages.config" />
     <Content Include="css\bootstrap-theme.css.map" />
     <Content Include="css\bootstrap-theme.min.css.map" />

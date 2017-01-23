@@ -2,8 +2,9 @@
 var geoApp = angular.module('geoApp', ['ngAnimate', 'ngSanitize', 'ui.bootstrap']);
 
 
+
 geoApp.controller('geoAppController', ['$scope', '$http', '$interval','$uibModal', function geoAppController($scope, $http, $interval,$uibModal) {
-  
+
     $scope.initSetup = function (debug) {
         //general setup items
         $scope.trackingStatus = true;
@@ -67,59 +68,59 @@ geoApp.controller('geoAppController', ['$scope', '$http', '$interval','$uibModal
         $scope.message = "Results cleared...";
     };
 
-    $scope.initJokes = function(){
-        
-      
-        
-$scope.jokes = [{
-    "id":"1",
-    "type": 'Kid',
-    "lines": [{
-        "line1": "Is your refigerator running?",
-        "line2": "Yes.",
-        "line3": "We'll you better catch it before it runs out of the house."
-    }]
-},{
-    id : "2",
-    "type": 'Kid',
-    "lines": [{
-        "line1": "Is John Wall There?",
-        "line2": "No.",
-        "line3": "Are there any Walls there?",
-        "line4": "No.",
-        "line5": "Then what's holding up your house?"
-    }]
-},
-                {
-    id : "3",
-    "type": 'Kid',
-    "lines": [{
-        "line1": "I'm calling about the broken pencils.",
-        "line2": "I'm sorry I don't understand what this is about.",
-        "line3": "Never mind... this is pointless."
-        }]
-},
-{
-    id : "4",
-    "type": 'Kid',
-    "lines": [{
-        "line1": "I'm calling for Atcha.",
-        "line2": "Acha who?",
-        "line3": "Bless you."
-        }]
-},
-{
-    id: "5",
-    "type": 'Kid',
-    "lines": [{
-        "line1": "I'm calling for IAM.",
-        "line2": "IAM who?",
-        "line3": "Well if you don't even know who you are then you obviously won't be able to find who I am calling for."
-    }]
-},
-                           
-      ]
-    }
+    $scope.initJokes = function () {
+
+
+
+        $scope.jokes = [{
+            "id": "1",
+            "type": 'Kid',
+            "lines": [{
+                "line1": "Is your refigerator running?",
+                "line2": "Yes.",
+                "line3": "We'll you better catch it before it runs out of the house."
+            }]
+        }, {
+            id: "2",
+            "type": 'Kid',
+            "lines": [{
+                "line1": "Is John Wall There?",
+                "line2": "No.",
+                "line3": "Are there any Walls there?",
+                "line4": "No.",
+                "line5": "Then what's holding up your house?"
+            }]
+        },
+                        {
+                            id: "3",
+                            "type": 'Kid',
+                            "lines": [{
+                                "line1": "I'm calling about the broken pencils.",
+                                "line2": "I'm sorry I don't understand what this is about.",
+                                "line3": "Never mind... this is pointless."
+                            }]
+                        },
+        {
+            id: "4",
+            "type": 'Kid',
+            "lines": [{
+                "line1": "I'm calling for Atcha.",
+                "line2": "Acha who?",
+                "line3": "Bless you."
+            }]
+        },
+        {
+            id: "5",
+            "type": 'Kid',
+            "lines": [{
+                "line1": "I'm calling for IAM.",
+                "line2": "IAM who?",
+                "line3": "Well if you don't even know who you are then you obviously won't be able to find who I am calling for."
+            }]
+        }
+
+        ];
+    };
     
     $scope.initSetup(false);
 
@@ -160,7 +161,7 @@ $scope.jokes = [{
   };
     
   $scope.removeGoogleGeoListner = function () {
-      if ($scope.myClickListener != null) {
+      if ($scope.myClickListener !== null) {
           $scope.amap.event.removeListener($scope.myClickListener);
       }
   };
@@ -200,23 +201,23 @@ $scope.jokes = [{
 
  };
   
- $scope.geocodeLatLngSucess = function(results, status){
-            if (status === 'OK') {
-             if (results[0]) {
-                 $scope.googleGeoMsg = results[0].formatted_address;
-                 $scope.parseAddress(results[0].formatted_address);
-                 $scope.displayAddress = true;
-                 $scope.makeYPlink();
-                 $scope.message = "Google says you are asking about this address...";
-             } else {
-                 $scope.googleGeoMsg = 'No results found';
-                 $scope.message = "Google didn't find anthing...";
-             }
-             $scope.$apply();
+ $scope.geocodeLatLngSucess = function (results, status) {
+     if (status === 'OK') {
+         if (results[0]) {
+             $scope.googleGeoMsg = results[0].formatted_address;
+             $scope.parseAddress(results[0].formatted_address);
+             $scope.displayAddress = true;
+             $scope.makeYPlink();
+             $scope.message = "Google says you are asking about this address...";
          } else {
-             $scope.googleGeoMsg = 'Geocoder failed due to: ' + status;
-         } 
- }  
+             $scope.googleGeoMsg = 'No results found';
+             $scope.message = "Google didn't find anthing...";
+         }
+         $scope.$apply();
+     } else {
+         $scope.googleGeoMsg = 'Geocoder failed due to: ' + status;
+     }
+ };
  
  $scope.geocodeLatLng = function () {
 
@@ -317,7 +318,7 @@ $scope.getSpokeTo = function () {
 };
 
 $scope.nameSearchSuccess = function (response, seq, fName, lName) {
-    try{
+    try {
         var responseData = response.data;
         if (responseData.result > 0) {
 
@@ -327,21 +328,21 @@ $scope.nameSearchSuccess = function (response, seq, fName, lName) {
                         var nameParts = phoneItem.name.split(' ');
                         if (nameParts.length > 0) {
                             peopleItem.fName = nameParts[0];
-                            peopleItem.lName = nameParts.slice(1).join(' ');;
+                            peopleItem.lName = nameParts.slice(1).join(' ');
                         }
                         //peopleItem.fName = phoneItem.name;
                         peopleItem.phoneNumber = phoneItem.phoneNumber;
                     }
                 });
             });
-            $scope.message = "Deeper Search Got a hit."
+            $scope.message = "Deeper Search Got a hit.";
         } else {
             $scope.updateGenMessage("No results found for " + fName + " " + lName);
         }
     } catch (ex) {
         $scope.updateGenMessage(ex.message);
-    } 
-}
+    }
+};
 
 $scope.nameSearch = function (fName, lName, seq) {
     $scope.message = "Deeper search for phone#s...";
@@ -422,12 +423,12 @@ $scope.updateMessageIcon = function (status) {
 
     }
 
-}
+};
 
 
-$scope.updateGenMessage = function(msg){
-    $scope.message= msg;
-}
+$scope.updateGenMessage = function (msg) {
+    $scope.message = msg;
+};
 
 $scope.getAddressFromGeo = function () {
 
@@ -474,16 +475,16 @@ $scope.getAddressFromGeo = function () {
 
     $scope.isSearchableAddress = function () {
       return (
-      ($scope.addNum != "") &&
-      ($scope.addRoad != "") &&
-      ($scope.addSta != "") &&
-      ($scope.addZip != "") &&
-      ($scope.addTown != "")
+      ($scope.addNum !== "") &&
+      ($scope.addRoad !== "") &&
+      ($scope.addSta !== "") &&
+      ($scope.addZip !== "") &&
+      ($scope.addTown !== "")
       );
   };
-    
+
 $scope.if_undef = function (data, undefval) {
-      if (undefined != data) {
+      if (undefined !== data) {
           return data;
       }
       else {
@@ -602,8 +603,8 @@ geoApp.directive("snoopResults", function () {
 });
 
 geoApp.directive('jokeDialog', function() {
-    return{
+    return {
         templateUrl: 'js/directives/jokedialog.html'
-    }
+    };
 });
 
